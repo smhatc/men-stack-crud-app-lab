@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add New Distro | <%= title %>
+        </title>
+</head>
+
+<body>
+        <h1>Add New Distro</h1>
+        <form action="/new" method="post">
+                <label for="name">Name</label>
+                <br>
+                <input id="name" name="name" type="text" placeholder="Enter Name" required>
+                <br>
+                <label for="description">Description</label>
+                <br>
+                <textarea id="description" name="description" placeholder="Enter Description" required></textarea>
+                <br>
+                <label for="base-distro">Base Distro</label>
+                <br>
+                <select id="base-distro" name="baseDistro" required>
+                        <option value="" selected disabled>Select Base Distro</option>
+                        <option value="Debian">Debian</option>
+                        <option value="Ubuntu">Ubuntu</option>
+                        <option value="Red-Hat">Red Hat</option>
+                        <option value="Arch">Arch</option>
+                        <option value="Other">Other</option>
+                </select>
+                <br>
+                <label for="desktop-environment">Desktop Environment</label>
+                <br>
+                <select id="desktop-environment" name="desktopEnvironment" required>
+                        <option value="" selected disabled>Select Desktop Envrionment</option>
+                        <option value="GNOME">GNOME</option>
+                        <option value="KDE-Plasma">KDE Plasma</option>
+                        <option value="COSMIC">COSMIC</option>
+                        <option value="Cinnamon">Cinnamon</option>
+                        <option value="WM">Window Manager (Any)</option>
+                        <option value="Other">Other</option>
+                </select>
+                <br>
+                <button type="submit">Add</button>
+        </form>
+</body>
+
+</html>

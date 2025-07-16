@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT ? process.env.PORT : 3000;
 const morgan = require("morgan");
+const linuxDistroController = require("./controllers/linux-distro-controller");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 
@@ -28,11 +29,7 @@ app.get("/", (req, res) => {
         });
 });
 
-app.get("/new", (req, res) => {
-        res.render("new.ejs", {
-                title,
-        });
-});
+app.use("/linux-distros", linuxDistroController);
 
 // STARTING THE SERVER
 app.listen(port, () => {

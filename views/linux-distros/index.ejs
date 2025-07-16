@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Linux Distros Index | <%= title  %></title>
+</head>
+<body>
+        <div>
+                <h1>Linux Distros Index</h1>
+                <a href="/linux-distros/new">Add Linux Distro</a>
+        </div>
+                <% allLinuxDistros.forEach(distro => { %>
+                        <h2>
+                                <a href="/linux-distros/<%= distro._id %>"><%= distro.name %></a>
+                        </h2>
+                        <p><strong>Description:</strong>
+                                <%= distro.description %>
+                        </p>
+                        <p><strong>Base Distro:</strong>
+                                <%= distro.baseDistro %>
+                        </p>
+                        <p><strong>Desktop Environment:</strong>
+                                <%= distro.desktopEnvironment %>
+                        </p>
+                        <hr />
+                <% }) %>
+</body>
+</html>

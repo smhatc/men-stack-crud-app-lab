@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Edit <%= foundLinuxDistro.name %> | <%= title  %></title>
+</head>
+
+<body>
+        <h1>Edit <%= foundLinuxDistro.name %></h1>
+        <form action="/linux-distros/<%= foundLinuxDistro._id %>?_method=PUT" method="post">
+                <label for="name">Name</label>
+                <br>
+                <input id="name" name="name" type="text" placeholder="Enter Name" value="<%= foundLinuxDistro.name %>" required>
+                <br>
+                <label for="description">Description</label>
+                <br>
+                <textarea id="description" name="description" placeholder="Enter Description" required><%= foundLinuxDistro.description %></textarea>
+                <br>
+                <label for="base-distro">Base Distro</label>
+                <br>
+                <select id="base-distro" name="baseDistro" required>
+                        <option value="" disabled>Select Base Distro</option>
+                        <option value="Debian" <% if (foundLinuxDistro.baseDistro === "Debian") { %> selected <% } %>>Debian</option>
+                        <option value="Ubuntu" <% if (foundLinuxDistro.baseDistro === "Ubuntu") { %> selected <% } %>>Ubuntu</option>
+                        <option value="Red-Hat" <% if (foundLinuxDistro.baseDistro === "Red-Hat") { %> selected <% } %>>Red Hat</option>
+                        <option value="Arch" <% if (foundLinuxDistro.baseDistro === "Arch") { %> selected <% } %>>Arch</option>
+                        <option value="Other" <% if (foundLinuxDistro.baseDistro === "Other") { %> selected <% } %>>Other</option>
+                </select>
+                <br>
+                <label for="desktop-environment">Desktop Environment</label>
+                <br>
+                <select id="desktop-environment" name="desktopEnvironment" required>
+                        <option value="" disabled>Select Desktop Envrionment</option>
+                        <option value="GNOME" <% if (foundLinuxDistro.desktopEnvironment === "GNOME") { %> selected <% } %>>GNOME</option>
+                        <option value="KDE-Plasma" <% if (foundLinuxDistro.desktopEnvironment === "KDE-Plasma") { %> selected <% } %>>KDE Plasma</option>
+                        <option value="COSMIC" <% if (foundLinuxDistro.desktopEnvironment === "COSMIC") { %> selected <% } %>>COSMIC</option>
+                        <option value="Cinnamon" <% if (foundLinuxDistro.desktopEnvironment === "Cinnamon") { %> selected <% } %>>Cinnamon</option>
+                        <option value="WM" <% if (foundLinuxDistro.desktopEnvironment === "WM") { %> selected <% } %>>Window Manager (Any)</option>
+                        <option value="Other" <% if (foundLinuxDistro.desktopEnvironment === "Other") { %> selected <% } %>>Other</option>
+                </select>
+                <br>
+                <button type="submit">Edit</button>
+        </form>
+</body>
+
+</html>
